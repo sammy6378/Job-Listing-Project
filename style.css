@@ -2,24 +2,63 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    list-style: none;
     text-decoration: none;
-    /* font-family: 'Courier New', Courier, monospace; */
 }
 
 body{
     background: #f0fafb;
     height: 100vh;
     overflow-x: hidden;
-    /* background-image: url(./images/bg-header-desktop.svg);
-    background-position:top;
-    background-repeat: no-repeat;
-    background-size:100%; */
 }
 
 header{
     height: 100vh;
     width: 100%;
+}
+
+.banner{
+    height: 20%;
+    background: #5aa5a1;
+}
+
+.banner img{
+    height: 100%;
+}
+
+.filter{
+    width:100%;
+    padding: 2em 6em;
+    background: #ffffff;
+    position: absolute;
+    z-index: 1000;
+    top: 60px;
+}
+
+.filterData{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.langs{
+    display: flex;
+    gap: 1em;
+}
+.langs li{
+    list-style: none;
+    padding:.6em;
+    cursor: pointer;
+    background: #efefef;
+    border-radius: 5px;
+    border-right: 4px solid #5aa5a1;
+}
+
+.clear{
+    border: none;
+    font-size: 1.2em;
+    background: transparent;
+    cursor: pointer;
+    color: #5aa5a1;
 }
 
 .container{
@@ -28,11 +67,12 @@ header{
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 3em 8em;
+    padding: 3em 6em;
+    gap: 1em;
 }
 
 .job-content{
-    width: auto;
+    width:100%;
     background: #ffffff;
     display: flex;
     justify-content: space-between;
@@ -40,6 +80,10 @@ header{
     border-radius: 10px;
     padding: 1em 2em;
     gap: 3em;
+}
+
+.new-job{
+    border-left: 5px solid #5aa5a1;
 }
 
 .hero,.time,.languages{
@@ -50,5 +94,41 @@ header{
 .about{
     display: flex;
     align-items: center;
-    gap: 2em;
+    gap: 1em;
+}
+
+.hero button{
+    background:#5aa5a1;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: .5em;
+    border: none;
+}
+
+.hero .featured{
+    background: #000000be;
+}
+.about h2:hover,h3:hover{
+    color: #5aa5a1;
+    cursor: pointer;
+}
+
+.time,.hero,.job-tittle{
+    margin-top: .5em;
+}
+
+.languages li{
+    list-style: none;
+    background: #edf6f4;
+    padding: .5em;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    transition: background .5s linear;
+}
+
+.languages li:hover{
+    background: #5da3a4;
+    transition: background .5s linear;
 }

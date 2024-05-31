@@ -1,5 +1,6 @@
 const jobDiv = document.querySelector('.container');
-
+const lang = document.querySelector('.langs');
+const clear = document.querySelector('.clear');
 function fetchJob(){
     fetch('data.json')
     .then(response => response.json())
@@ -40,8 +41,8 @@ function createJob(element) {
 
     hero.innerHTML = `
         <h2 class="type">${element.company}</h2>
-        <button class="new">${element.new}</button>
-        <button class="featured">${element.featured}</button>
+        ${element.new ?'<button class="new">NEW!</button>' : ''}
+        ${element.featured ? '<button class="featured">FEATURED</button>' : ''}
     `;
     time.innerHTML = `
         <span class="time-post">${element.postedAt}</span>
@@ -49,9 +50,24 @@ function createJob(element) {
         <li class="area">${element.location}</li>
     `;
 
-    languages.innerHTML = `
-        <li class="language">${element.languages}</li>
-    `;
+    element.languages.forEach(language => {
+        const languageItem = document.createElement('li');
+        languageItem.classList.add('language');
+        languageItem.textContent = language;
+        languages.appendChild(languageItem);
+
+        languageItem.addEventListener('click', () =>{
+            const languageLi = document.createElement('li');
+            languageLi.classList.add('lang');
+            languageLi.textContent = language;
+            lang.appendChild(languageLi);
+            clear.addEventListener('click', () =>{
+                lang.removeChild(languageLi);
+            })
+        });
+        
+        
+    });
 
     h3.textContent = `${element.position}`;
 
